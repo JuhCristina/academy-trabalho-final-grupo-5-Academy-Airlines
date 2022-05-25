@@ -15,3 +15,16 @@ Feature: hook
         
         * def id = response.id
         * def isAdmin = response.is_admin
+
+    @login
+    Scenario: login
+        * call read("hook.feature@criarUsuario")
+        * def payload = read("payloadUsuario.json")
+
+        Given url baseUrl
+        Given path "auth/login"
+        And form field email = payload.email
+        And form field password = payload.password
+        When method post
+        Then status 200
+        * def token = response.session.token
