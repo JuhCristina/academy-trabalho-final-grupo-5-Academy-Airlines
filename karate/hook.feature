@@ -28,3 +28,15 @@ Feature: hook
         When method post
         Then status 200
         * def token = response.session.token
+
+    @criarLista
+    Scenario: criar lista de compras
+        * call read("hook.feature@login")
+        * def payload = read("payloadUsuario.json")
+
+        Given url baseUrl
+        Given path "list"
+        And header X-JWT-Token = payload.token
+        And request { description: "Supermarket", items: [{ name: "Avocado", amount: 1}]}
+        When method post
+        Then status 201
