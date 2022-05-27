@@ -1,0 +1,4 @@
+{
+    "description": "#(nomeLista)", 
+    "items": [{ "name": "#(nomeDoProduto)", "amount": "#(quantidade)"}]
+}
