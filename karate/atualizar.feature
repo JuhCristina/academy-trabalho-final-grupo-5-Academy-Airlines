@@ -5,14 +5,18 @@ Feature: Atualizar perfil
 
     Scenario: altero os dados com sucesso
         * call read("hook.feature@login")
+        * def name = java.util.UUID.randomUUID() + "user"
+        * def email = java.util.UUID.randomUUID() + "@academy-airlines.com"
         * def payload = read("payloadUsuario.json")
 
         Given url baseUrl
         Given path "users"
+
         And header X-JWT-Token = payload.token
-        And request { name: "#(payload.name)", email: "#(payload.email)" }
+        And request { name: "#(name)", email: "#(email)" }
         When method put
         Then status 200
+        And match response == { id: "#string", name: "#(payload.name)",email:"#(payload.email)", is_admin: false, createdAt: "#string", updatedAt: "#string" }
 
     Scenario: atualizo email para um já existente
         * call read("hook.feature@login")
