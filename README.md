@@ -113,7 +113,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[David Ortiz](https://github.com/david-ortizD)**
 -   **[Juliana Cristina](https://github.com/JuhMuntanelli)**
 -   **[Marcos A. Lira](https://github.com/Marcoslira91)**
--   **[Matheus Godoi]()**
+-   **[Matheus Godoi](https://github.com/MatheusSantaclara)**
  
 
 ---
